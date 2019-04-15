@@ -13,14 +13,24 @@ defmodule MessagingWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :jwt_authenticated do
+    plug MessagingWeb.AuthenticationPipeline
+  end
+
   scope "/", MessagingWeb do
     pipe_through :browser
 
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", MessagingWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", MessagingWeb.Api do
+    pipe_through :api
+    resources "/users", UserController, only: [:create]
+    resources "/sessions", SessionController, only: [:create]
+  end
+
+  scope "/api/v1", MessagingWeb.Api do
+    pipe_through [:api, :jwt_authenticated]
+    resources "/user", UserController, singleton: true, only: [:show, :update]
+  end
 end
