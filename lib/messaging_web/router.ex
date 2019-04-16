@@ -32,5 +32,9 @@ defmodule MessagingWeb.Router do
   scope "/api/v1", MessagingWeb.Api do
     pipe_through [:api, :jwt_authenticated]
     resources "/user", UserController, singleton: true, only: [:show, :update]
+
+    resources "/chat_rooms", ChatRoomController, only: [:index] do
+      resources "/messages", MessageController, only: [:index, :create]
+    end
   end
 end
