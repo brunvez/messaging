@@ -9,7 +9,10 @@ defmodule MessagingWeb.Api.UserController do
   def create(conn, %{"user" => user_params}) do
     with {:ok, %User{} = user} <- Accounts.create_user(user_params),
          {:ok, token} <- Accounts.generate_token(user) do
-      conn |> put_status(201) |> render("token.json", token: token)
+      conn
+      |> put_resp_header("Authorization", token)
+      |> put_status(201)
+      |> render("user.json", user: user)
     end
   end
 
