@@ -1,8 +1,8 @@
 defmodule Messaging.ChatsTest do
   use Messaging.DataCase
 
-  alias Messaging.Chats
   alias Messaging.Accounts
+  alias Messaging.Chats
 
   describe "chat_rooms" do
     alias Messaging.Chats.ChatRoom

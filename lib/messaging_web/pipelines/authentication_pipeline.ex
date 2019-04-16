@@ -1,4 +1,8 @@
 defmodule MessagingWeb.AuthenticationPipeline do
+  @moduledoc """
+  Authenticates the user based on the token found in
+  the Authentication header
+  """
   use Guardian.Plug.Pipeline,
     otp_app: :messaging,
     module: Messaging.Accounts.Guardian,

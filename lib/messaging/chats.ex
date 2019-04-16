@@ -91,7 +91,6 @@ defmodule Messaging.Chats do
     Repo.delete(chat_room)
   end
 
-
   @doc """
   Returns the list of messages.
 

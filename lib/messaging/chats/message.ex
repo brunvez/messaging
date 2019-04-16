@@ -1,10 +1,10 @@
 defmodule Messaging.Chats.Message do
+  @moduledoc false
   use Ecto.Schema
   import Ecto.Changeset
 
   alias Messaging.Accounts.User
   alias Messaging.Chats.ChatRoom
-
 
   schema "messages" do
     field :content, :string

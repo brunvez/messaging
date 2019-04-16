@@ -1,4 +1,5 @@
 defmodule Messaging.Accounts.User do
+  @moduledoc false
   use Ecto.Schema
   import Ecto.Changeset
   alias Messaging.Accounts.User

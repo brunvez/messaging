@@ -7,8 +7,8 @@ defmodule Messaging.Accounts do
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
   alias Messaging.Repo
 
-  alias Messaging.Accounts.User
   alias Messaging.Accounts.Guardian
+  alias Messaging.Accounts.User
 
   @doc """
   Returns the list of users.

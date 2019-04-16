@@ -1,4 +1,8 @@
 defmodule MessagingWeb.Authentication.SetCurrentUser do
+  @moduledoc """
+  Sets the :current_user in the connection to the
+  one found in the authentication token
+  """
   def init(opts), do: opts
 
   def call(conn, _opts) do

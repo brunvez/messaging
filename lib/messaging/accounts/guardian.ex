@@ -1,4 +1,8 @@
 defmodule Messaging.Accounts.Guardian do
+  @moduledoc """
+    Module in charge of creating and validating
+    tokens for authentication
+  """
   use Guardian, otp_app: :messaging
 
   alias Messaging.Accounts

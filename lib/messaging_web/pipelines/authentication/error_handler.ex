@@ -1,4 +1,7 @@
 defmodule MessagingWeb.Authentication.ErrorHandler do
+  @moduledoc """
+  Handles errors found in the authorization pipeline
+  """
   import Plug.Conn
 
   @behaviour Guardian.Plug.ErrorHandler
